@@ -12,7 +12,7 @@ export default class Document extends NextDocument {
             color: "#000000",
           }}
         >
-          <ColorModeScript />
+          <ColorModeScript initialColorMode="dark" />
           <Main />
           <NextScript />
         </body>
