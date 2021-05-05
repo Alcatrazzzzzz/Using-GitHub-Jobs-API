@@ -8,7 +8,6 @@ export default class Document extends NextDocument {
         <Head />
         <body
           style={{
-            backgroundColor: "#EDEDED",
             fontFamily: "'Noto Sans', sans-serif",
             color: "#000000",
           }}

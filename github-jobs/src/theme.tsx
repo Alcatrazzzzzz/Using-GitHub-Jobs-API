@@ -11,6 +11,13 @@ const breakpoints = createBreakpoints({
 });
 
 const theme = extendTheme({
+  styles: {
+    global: (props) => ({
+      body: {
+        backgroundColor: props.colorMode !== "light" ? "#EDEDED" : "black",
+      },
+    }),
+  },
   colors: {
     black: "#000000",
     green: "#43e2a9",

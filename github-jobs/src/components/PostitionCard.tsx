@@ -1,7 +1,8 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, useColorMode } from "@chakra-ui/react";
 import React from "react";
 import { Avatar } from "@chakra-ui/avatar";
-import { motion } from "framer-motion";
+import { MotionFlex, loadingAnimate } from "../utils/animation";
+import moment from "moment";
 
 interface PostitionCardProps {
   loading?: boolean;
@@ -15,18 +16,6 @@ interface PostitionCardProps {
   };
 }
 
-const MotionFlex = motion(Flex);
-const loadingAnimate = {
-  backgroundColor: [
-    "rgb(201, 201, 201)",
-    "rgb(230, 230, 230)",
-    "rgb(201, 201, 201)",
-  ],
-  transition: {
-    repeat: "Infinity",
-    duration: 2.5,
-  },
-};
 export const PostitionCard: React.FC<PostitionCardProps> = ({
   loading = true,
   data = {
@@ -38,6 +27,9 @@ export const PostitionCard: React.FC<PostitionCardProps> = ({
     positionPosted: "nodata",
   },
 }) => {
+  const { colorMode } = useColorMode();
+  const isLight = colorMode === "light";
+
   return (
     <Flex
       boxShadow="2px 4px 8px -2px rgba(0, 0, 0, 0.25)"
@@ -46,11 +38,13 @@ export const PostitionCard: React.FC<PostitionCardProps> = ({
     >
       <Flex
         padding="0px 16px"
-        backgroundColor="white"
+        backgroundColor={isLight ? "none" : "white"}
         w="100%"
         h="170px"
         flexDir="column"
         borderRadius="4px 4px 0px 0px "
+        borderWidth={isLight ? "1px 1px 0px 1px" : "none"}
+        borderColor={isLight ? "green" : "none"}
       >
         {loading ? (
           <>
@@ -95,7 +89,7 @@ export const PostitionCard: React.FC<PostitionCardProps> = ({
             />
             <Flex alignItems="center" mt="10px" fontSize="14px">
               <Text color="#9D9D9D" mr="10px">
-                {data.positionPosted}
+                {moment(Date.parse(data.positionPosted)).fromNow()}
               </Text>
               <Flex
                 mt="2px"
@@ -108,7 +102,12 @@ export const PostitionCard: React.FC<PostitionCardProps> = ({
                 {data.positionTime}
               </Text>
             </Flex>
-            <Text fontWeight="600" fontSize="16px" mt="10px">
+            <Text
+              color={isLight ? "white" : "unset"}
+              fontWeight="600"
+              fontSize="16px"
+              mt="10px"
+            >
               {data.positonTitle}
             </Text>
             <Text mt="5px" fontSize="14px" color="#9D9D9D">
@@ -121,12 +120,16 @@ export const PostitionCard: React.FC<PostitionCardProps> = ({
         padding="0 20px"
         alignItems="center"
         borderRadius="0 0 4px 4px"
-        backgroundColor="black"
+        backgroundColor={isLight ? "green" : "black"}
         h="30px"
         animate={loading ? loadingAnimate : null}
       >
         {loading ? null : (
-          <Text fontSize="14px" color="green">
+          <Text
+            fontWeight={isLight ? "bold" : "normal"}
+            fontSize="14px"
+            color={isLight ? "black" : "green"}
+          >
             {data.positionLocation}
           </Text>
         )}
