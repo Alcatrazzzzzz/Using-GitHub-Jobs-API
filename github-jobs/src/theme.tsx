@@ -22,6 +22,10 @@ const theme = extendTheme({
     black: "#000000",
     green: "#43e2a9",
   },
+  config: {
+    initialColorMode: "dark",
+    useSystemColorMode: false,
+  },
   fonts,
   breakpoints,
   components: {
