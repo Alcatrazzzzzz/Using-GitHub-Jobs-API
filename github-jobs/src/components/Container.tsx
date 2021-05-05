@@ -5,7 +5,7 @@ interface ContainerProps {}
 
 export const Container: React.FC<ContainerProps> = ({ children }) => {
   return (
-    <Flex flexDir="column" w="70%" mx="auto">
+    <Flex flexDir="column" w={["80%", "80%", "70%", "70%"]} mx="auto">
       {children}
     </Flex>
   );

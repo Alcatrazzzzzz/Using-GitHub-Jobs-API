@@ -13,7 +13,11 @@ export const NavBar: React.FC<NavBarProps> = ({}) => {
   const isLight = colorMode === "light";
 
   return (
-    <Flex w="100%" h="140px" backgroundColor={!isLight ? "black" : "green"}>
+    <Flex
+      w="100%"
+      h={["120px", "120px", "140px", "140px"]}
+      backgroundColor={!isLight ? "black" : "green"}
+    >
       <Container>
         <Flex alignItems="center" mt="30px">
           <Link href="/">
@@ -21,21 +25,25 @@ export const NavBar: React.FC<NavBarProps> = ({}) => {
               <Flex alignItems="center" color="white">
                 <Icon
                   as={AiFillGithub}
-                  w="48px"
-                  h="48px"
+                  w={["36px", "36px", "48px", "48px"]}
+                  h={["36px", "36px", "48px", "48px"]}
                   color={!isLight ? "white" : "black"}
                 />
                 <Text
                   color={!isLight ? "white" : "black"}
                   ml="5px"
-                  fontSize="30px"
+                  fontSize={["24px", "24px", "30px", "30px"]}
                 >
                   devJobs
                 </Text>
               </Flex>
             </a>
           </Link>
-          <Flex mt="12px" alignItems="center" ml="auto">
+          <Flex
+            mt={["0px", "0px", "12px", "12px"]}
+            alignItems="center"
+            ml="auto"
+          >
             <Icon
               mr="10px"
               as={IoMdSunny}

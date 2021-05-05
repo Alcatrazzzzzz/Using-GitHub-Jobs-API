@@ -84,6 +84,7 @@ const Index = () => {
         {!hasNextPage ? null : (
           <MyButton
             // btnRef={loadMoreButtonRef} Turn On Auto Fetching when window view is on button
+            w={["100%", "100%", "max-content", "max-content"]}
             onClick={() => fetchNextPage()}
             text="Load More"
             margin="42px auto "

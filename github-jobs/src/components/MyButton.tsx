@@ -9,6 +9,7 @@ interface MyButtonProps {
   btnRef?: any;
   withIcon?: IconType;
   variant?: "dark" | "light" | "green" | "darkMode";
+  w?: string | number | string[];
 }
 
 export const MyButton: React.FC<MyButtonProps> = ({
@@ -17,6 +18,7 @@ export const MyButton: React.FC<MyButtonProps> = ({
   onClick = () => {},
   variant = "dark",
   btnRef = null,
+  w = "max-content",
   withIcon,
 }) => {
   const [isLargerThanSmall] = useMediaQuery("(min-width: 40em)");
@@ -68,6 +70,7 @@ export const MyButton: React.FC<MyButtonProps> = ({
       ref={btnRef}
       onClick={() => onClick()}
       h="32px"
+      w={w}
       padding={withIcon ? (isLargerThanSmall ? "0 21px" : "0px") : "0 21px"}
       margin={margin}
       backgroundColor={styles.backgroundColor}

@@ -104,7 +104,10 @@ export const SearchBar: React.FC<SearchBarProps> = ({ setFilters }) => {
             />
             <Modal onClose={onClose} size={"6xl"} isOpen={isOpen}>
               <ModalOverlay />
-              <ModalContent w="70%" backgroundColor="white">
+              <ModalContent
+                w={["80%", "80%", "70%", "70%"]}
+                backgroundColor="white"
+              >
                 <ModalCloseButton zIndex={2} color="green" />
                 <ModalBody padding="15px 0px" display="flex" flexDir="column">
                   <Flex p="0 15px" mt="10px" w="100%" alignItems="center">
